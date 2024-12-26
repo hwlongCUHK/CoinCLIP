@@ -11,7 +11,7 @@ from transformers import AutoTokenizer
 torch.set_default_dtype(torch.float32)
 from models import LinearClassifier, CosineClassifier, LinearProjection, CLIP_Text, Adapter
 
-class MemeCLIP(pl.LightningModule):
+class CoinCLIP(pl.LightningModule):
 
     def __init__(self, cfg):
         super().__init__()
@@ -165,5 +165,5 @@ class MemeCLIP(pl.LightningModule):
         return optimizer
 
 def create_model(cfg):
-    model = MemeCLIP(cfg)
+    model = CoinCLIP(cfg)
     return model
