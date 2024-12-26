@@ -7,7 +7,7 @@ from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader
 from datasets import Custom_Collator, load_dataset
-from MemeCLIP import create_model, MemeCLIP
+from CoinCLIP import create_model, CoinCLIP
 from configs import cfg
 import os
 import torchmetrics
@@ -52,7 +52,7 @@ def main(cfg):
 
         trainer.fit(model, train_dataloaders=train_loader, val_dataloaders=val_loader)
     
-    model = MemeCLIP.load_from_checkpoint(checkpoint_path = cfg.checkpoint_file, cfg = cfg) 
+    model = CoinCLIP.load_from_checkpoint(checkpoint_path = cfg.checkpoint_file, cfg = cfg) 
     trainer.test(model, dataloaders=test_loader)
 
 if __name__ == '__main__':
